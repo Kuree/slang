@@ -273,7 +273,9 @@ void SubroutineSymbol::serializeTo(ASTSerializer& serializer) const {
 
     serializer.startArray("arguments");
     for (auto const arg : arguments) {
+        serializer.startObject();
         arg->serializeTo(serializer);
+        serializer.endObject();
     }
     serializer.endArray();
 }
